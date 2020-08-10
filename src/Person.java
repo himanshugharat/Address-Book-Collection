@@ -73,6 +73,10 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
+    public Person() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Person{" +
