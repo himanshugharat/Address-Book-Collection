@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int count=0;
         String firstName;
         String lastName;
         String address;
@@ -11,33 +9,68 @@ public class AddressBookMain {
         String state;
         int zip;
         long phoneNumber;
-        Person details[]=new Person[10];
-        while(true){
-            System.out.println("1.Add contact");
-            System.out.println("enter the choice");
-            int choice=sc.nextInt();
-            switch(choice){
+        int opreator;
+        int count = 0;
+        Scanner sc = new Scanner(System.in);
+        Person addArray[] = new Person[10];
+        while (true) {
+            System.out.println("operations are \n1.add address \n2.update address");
+            System.out.println("enter your choice");
+            opreator = sc.nextInt();
+            switch (opreator) {
                 case 1:
-                    System.out.println("welcome to address book program");
-                    System.out.println("Enter your first name");
-                    firstName=sc.next();
-                    System.out.println("Enter your last name");
-                    lastName=sc.next();
-                    System.out.println("Enter your address");
-                    address=sc.next();
-                    System.out.println("Enter your city name");
-                    city=sc.next();
-                    System.out.println("Enter your state name");
-                    state=sc.next();
-                    System.out.println("Enter your zip code");
-                    zip=sc.nextInt();
-                    System.out.println("Enter your phone number");
-                    phoneNumber=sc.nextLong();
-                    Person person=new Person();
-                    details[count]=new Person(firstName,lastName,address,city,state,zip,phoneNumber);
-                    System.out.println(details[count]);
+                    System.out.println("lets add new address entry");
+                    System.out.println("enter the first name");
+                    firstName = sc.next();
+                    System.out.println("enter the last name");
+                    lastName = sc.next();
+                    System.out.println("enter the one word address location ");
+                    address = sc.next();
+                    System.out.println("enter the city name");
+                    city = sc.next();
+                    System.out.println("enter the State");
+                    state = sc.next();
+                    System.out.println("enter the zip code");
+                    zip = sc.nextInt();
+                    System.out.println("enter the phone number");
+                    phoneNumber = sc.nextLong();
+                    addArray[count] = new Person(firstName, lastName, address, city, state, zip, phoneNumber);
+                    System.out.println("succesfully added");
+                    System.out.println(addArray[count]);
                     count++;
-             }
+                    break;
+                case 2:
+                    System.out.println("update book");
+                    System.out.println("enter the name");
+                    firstName = sc.next();
+                    for (int i = 0; i < count; i++) {
+                        if (addArray[i] != null && addArray[i].getFirstName().equals(firstName)) {
+                            System.out.println("enter the first name");
+                            firstName = sc.next();
+                            addArray[i].setFirstName(firstName);
+                            System.out.println("enter the last name");
+                            lastName = sc.next();
+                            addArray[i].setLastName(lastName);
+                            System.out.println("enter the one word address location ");
+                            address = sc.next();
+                            addArray[i].setAddress(address);
+                            System.out.println("enter the city name");
+                            city = sc.next();
+                            addArray[i].setCity(city);
+                            System.out.println("enter the State");
+                            state = sc.next();
+                            addArray[i].setState(state);
+                            System.out.println("enter the zip code");
+                            zip = sc.nextInt();
+                            addArray[i].setZip(zip);
+                            System.out.println("enter the phone number");
+                            phoneNumber = sc.nextLong();
+                            addArray[i].setPhoneNumber(phoneNumber);
+                            System.out.println(addArray[i]);
+                        }
+                    }
+                    System.out.println("successfully updated");
+            }
         }
     }
 }

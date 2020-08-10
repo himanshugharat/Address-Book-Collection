@@ -64,6 +64,7 @@ public class Person {
     }
 
     public Person(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -73,9 +74,7 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public Person() {
-        super();
-    }
+
 
     @Override
     public String toString() {
