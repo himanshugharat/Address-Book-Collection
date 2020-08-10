@@ -1,6 +1,4 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBookMain {
     public static void main(String[] args) {
@@ -14,10 +12,9 @@ public class AddressBookMain {
         int opreator;
         int count = 0;
         Scanner sc = new Scanner(System.in);
-        LinkedList<Person> list=new LinkedList();
-        //Person addArray[] = new Person[10];
+        LinkedList<Person> list=new LinkedList<Person>();
         while (true) {
-            System.out.println("operations are \n1.add address \n2.update address \n3.delete");
+            System.out.println("operations are \n1.add address \n2.update address \n3.delete \n4.sort");
             System.out.println("enter your choice");
             opreator = sc.nextInt();
             switch (opreator) {
@@ -50,6 +47,7 @@ public class AddressBookMain {
                         System.out.println("succesfully added");
                         System.out.println(list.get(count));
                         count++;
+
                     }
 
                     break;
@@ -105,8 +103,19 @@ public class AddressBookMain {
                         place++;
                     }
                     System.out.println("successfully deleted");
+                case 4:
+                    Collections.sort(list, new Comparator<Person>() {
+                        @Override
+                        public int compare(Person person, Person t1) {
+                            return person.getFirstName().compareTo(t1.getFirstName());
+
+                        }
+                    });
+                    
             }
+
             System.out.println(list);
+
         }
     }
 }
