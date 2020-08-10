@@ -28,6 +28,12 @@ public class AddressBookMain {
                     for (int i=0;i<num;i++) {
                         System.out.println("enter the first name");
                         firstName = sc.next();
+                        for(int j=0;j<list.size();j++) {
+                            if(list.get(j).getFirstName().equals(firstName)) {
+                                System.out.println("the name exits");
+                                break;
+                            }
+                        }
                         System.out.println("enter the last name");
                         lastName = sc.next();
                         System.out.println("enter the one word address location ");
