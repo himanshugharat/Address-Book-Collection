@@ -70,6 +70,18 @@ public class AddressBookMain {
                         }
                     }
                     System.out.println("successfully updated");
+                case 3:
+                    System.out.println("delete contact");
+                    System.out.println("enter the name to delete");
+                    firstName=sc.next();
+                    for (int i=0;i<count;i++){
+                        if(addArray[i]!=null&&addArray[i].getFirstName().equals(firstName)){
+                            addArray[i]=null;
+
+                        }
+                    }
+                    System.out.println("successfully deleted");
+
             }
         }
     }
