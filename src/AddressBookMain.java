@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class AddressBookMain {
@@ -14,7 +15,7 @@ public class AddressBookMain {
         Scanner sc = new Scanner(System.in);
         LinkedList<Person> list=new LinkedList<Person>();
         while (true) {
-            System.out.println("operations are \n1.add address \n2.update address \n3.delete \n4.sort");
+            System.out.println("operations are \n1.add address \n2.update address \n3.delete \n4.sort based on namw \n5.sort based on city, state or zip");
             System.out.println("enter your choice");
             opreator = sc.nextInt();
             switch (opreator) {
@@ -111,7 +112,35 @@ public class AddressBookMain {
 
                         }
                     });
-                    
+
+                case 5:
+                    System.out.println("sorting based on city");
+                    Collections.sort(list, new Comparator<Person>() {
+                        @Override
+                        public int compare(Person person, Person t1) {
+                            return person.getCity().compareTo(t1.getCity());
+
+                        }
+                    });
+                    System.out.println(list);
+                    System.out.println("sorting based on state");
+                    Collections.sort(list, new Comparator<Person>() {
+                        @Override
+                        public int compare(Person person, Person t1) {
+                            return person.getState().compareTo(t1.getState());
+
+                        }
+                    });
+                    System.out.println(list);
+                    System.out.println("sorting based on zip");
+                    Collections.sort(list, new Comparator<Person>() {
+                        @Override
+                        public int compare(Person person, Person t1) {
+                            return person.getFirstName().compareTo(t1.getFirstName());
+
+                        }
+                    });
+
             }
 
             System.out.println(list);
