@@ -2,7 +2,7 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class AddressBookMain {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         String firstName;
         String lastName;
         String address;
@@ -96,8 +96,8 @@ public class AddressBookMain {
                     System.out.println("enter the name to delete");
                     firstName=sc.next();
                     Iterator<Person> j=list.listIterator();
+                    int place = 0;
                     while(j.hasNext()) {
-                        int place = 0;
                         if (j.next().getFirstName().matches(firstName)) {
                             list.remove(place);
                         }
@@ -148,14 +148,15 @@ public class AddressBookMain {
                     System.out.println("enter the city to find");
                     city=sc.next();
                     Iterator<Person> k=list.listIterator();
+                    int position=0;
                     while(k.hasNext()) {
-                        int place = 0;
-                        if (k.next().getState().matches(state) && k.next().getCity().matches(city) ) {
-                            System.out.println(list.get(place));
+                        if (k.next().getState().matches(state) ) {
+                            System.out.println(list.get(position));
                         }
-                        place++;
+                        position++;
                     }
                     System.out.println("successfully fetched");
+                    break;
                 case 7:
                     System.out.println("search using city name");
                     System.out.println("enter the state to find");
@@ -163,17 +164,19 @@ public class AddressBookMain {
                     System.out.println("enter the city to find");
                     city=sc.next();
                     Iterator<Person> iter=list.listIterator();
-                    while(iter.hasNext()) {
-                        int place = 0;
-                        if (iter.next().getState().matches(state) && iter.next().getCity().matches(city) ) {
-                            System.out.println(list.get(place));
+                    System.out.println("enter the person to search");
+                    firstName=sc.next();
+                    Iterator<Person> iter1=list.listIterator();
+                    int places=0;
+                    while(iter1.hasNext()) {
+                        if (iter1.next().getState().matches(state) && iter1.next().getCity().matches(city) && iter1.next().getFirstName().matches(firstName)) {
+                            System.out.println(list.get(places));
                         }
-                        place++;
+                        places++;
                     }
+                default:
+                    throw new IllegalStateException("Unexpected value: " + opreator);
             }
-
-            //System.out.println(list);
-
         }
     }
 }
