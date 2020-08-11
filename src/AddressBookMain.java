@@ -140,10 +140,39 @@ public class AddressBookMain {
 
                         }
                     });
-
+                    break;
+                case 6:
+                    System.out.println("find by state and city");
+                    System.out.println("enter the state to find");
+                    state=sc.next();
+                    System.out.println("enter the city to find");
+                    city=sc.next();
+                    Iterator<Person> k=list.listIterator();
+                    while(k.hasNext()) {
+                        int place = 0;
+                        if (k.next().getState().matches(state) && k.next().getCity().matches(city) ) {
+                            System.out.println(list.get(place));
+                        }
+                        place++;
+                    }
+                    System.out.println("successfully fetched");
+                case 7:
+                    System.out.println("search using city name");
+                    System.out.println("enter the state to find");
+                    state=sc.next();
+                    System.out.println("enter the city to find");
+                    city=sc.next();
+                    Iterator<Person> iter=list.listIterator();
+                    while(iter.hasNext()) {
+                        int place = 0;
+                        if (iter.next().getState().matches(state) && iter.next().getCity().matches(city) ) {
+                            System.out.println(list.get(place));
+                        }
+                        place++;
+                    }
             }
 
-            System.out.println(list);
+            //System.out.println(list);
 
         }
     }
